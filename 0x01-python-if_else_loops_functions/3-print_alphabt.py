@@ -5,4 +5,4 @@ for letter in range(97, 123):
     elif letter == 113:
         continue
     else:
-        print(chr(letter), end = '')
+        print("{:s}".format(chr(letter)), end='')
