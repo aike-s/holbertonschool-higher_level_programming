@@ -8,7 +8,8 @@ if __name__ == "__main__":
     # Converts all the arguments into integers
     length = len(num_list)
     if length < 1:
-        sys.exit("0")
+        print("{}".format(0))
+        quit()
     total = num_list[0]
     for x in range(1, length):
         i += 1
