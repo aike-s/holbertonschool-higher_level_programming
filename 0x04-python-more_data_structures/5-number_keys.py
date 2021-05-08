@@ -2,4 +2,6 @@
 def number_keys(a_dictionary):
     for num, keys in enumerate(a_dictionary):
         pass
-    return num + 1
+    if num > 0:
+        num += 1
+    return num
