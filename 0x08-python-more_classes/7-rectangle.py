@@ -1,14 +1,19 @@
 #!/usr/bin/python3
+
 """Defining a rectangle"""
 
 
 class Rectangle:
 
     """Represents a class rectangle"""
+    number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
 
         """Initializes rectangle"""
+        type(self).number_of_instances += 1
+        self.print_symbol = '#'
         self.width = width
         self.height = height
 
@@ -67,16 +72,20 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ''
         matrix = ''
-        i = 0
         for x in range(self.__height):
             for y in range(self.__width):
-                matrix = matrix[:] + '#'
-            if i < self.__height - 1:
+                matrix = matrix[:] + str((self).print_symbol)
+            if x < self.__height - 1:
                 matrix = matrix[:] + '\n'
-                i += 1
         return matrix
 
     def __repr__(self):
 
         """Makes a string representation of the rectangle"""
         return f'Rectangle(width={self.__width}, height={self.__height})'
+
+    def __del__(self):
+
+        """Msg after delete an object"""
+        type(self).number_of_instances -= 1
+        print('Bye rectangle...')
