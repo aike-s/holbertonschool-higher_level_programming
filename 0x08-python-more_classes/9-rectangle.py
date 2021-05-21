@@ -94,9 +94,11 @@ class Rectangle:
 
         """Verify the biggest rectangle based on the area"""
         if type(rect_1) != Rectangle:
-            raise TypeError('{} must be an instance of Rectangle'.format(rect_1))
+            raise TypeError('{} must be an instance of Rectangle'\
+                .format(rect_1))
         if type(rect_2) != Rectangle:
-            raise TypeError('{} must be an instance of Rectangle'.format(rect_2))
+            raise TypeError('{} must be an instance of Rectangle'\
+                .format(rect_2))
         if rect_1.area() >= rect_2.area():
             return rect_1
         if rect_2.area() > rect_1.area():
