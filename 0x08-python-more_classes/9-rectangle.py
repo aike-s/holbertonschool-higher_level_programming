@@ -13,7 +13,6 @@ class Rectangle:
 
         """Initializes rectangle"""
         type(self).number_of_instances += 1
-        self.print_symbol = '#'
         self.__width = width
         self.__height = height
 
@@ -21,7 +20,7 @@ class Rectangle:
     def width(self):
 
         """Initializates property width"""
-        return self.__width
+        return self.__widtht
 
     @width.setter
     def width(self, value):
