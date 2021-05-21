@@ -81,4 +81,3 @@ class Rectangle:
 
         """Makes a string representation of the rectangle"""
         return f'Rectangle(width={self.__width}, height={self.__height})'
-    
