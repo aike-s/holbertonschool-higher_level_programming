@@ -20,7 +20,7 @@ class Rectangle:
     def width(self):
 
         """Initializates property width"""
-        return self.__widtht
+        return self.__width
 
     @width.setter
     def width(self, value):
