@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+In this module a function to convert an object into text
+with JSON representation
+"""
 import json
 
 

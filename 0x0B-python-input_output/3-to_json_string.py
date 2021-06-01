@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+In this module a function to represent an object in JSON strings
+"""
 import json
 
 

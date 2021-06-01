@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+In this module a single function to read a file
+"""
+
+
 def read_file(filename=""):
     """ Reads a text file and prints it to stdout """
 
