@@ -8,11 +8,12 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
 
 if __name__ == "__main__":
+    filename = "add_item.json"
     try:
-        object_from_json = load_from_json_file("add_item.json")
-    except:
-        pass
+        object_from_json = load_from_json_file(filename)
+    except(FileExistsError):
         object_from_json = []
+
     for to_add in argv[1:]:
         object_from_json.append(to_add)
-    save_to_json_file(object_from_json, "add_item.json")
+    save_to_json_file(object_from_json, filename)
