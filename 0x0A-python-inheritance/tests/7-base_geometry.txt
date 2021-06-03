@@ -1,0 +1,39 @@
+================================
+The 7-base_geometry.py module
+================================
+
+Using class BaseGeometry of file 7-base_geometry.py.
+
+
+Imports module
+───────────────────────────
+    >>> BaseGeometry = __import__('7-base_geometry').MyList
+
+    >>> base_g = BaseGeometry()
+
+============================
+Normal method
+----------------------------
+
+    >>> base_g.integer_validator("a_int", 12)
+    >>> base_g.integer_validator("another_int", 34)
+    >>> base_g.integer_validator("and_another_int", 111)
+
+============================
+TypeError
+----------------------------
+
+    >>> base_g.integer_validator("not_int", "i'm not an int")
+    Traceback (most recent call last):
+        ...
+    TypeError: not_int must be an integer
+    >>> base_g.integer_validator("less_zero", -68)
+    Traceback (most recent call last):
+        ...
+    ValueError: less_zero must be greater than 0
+    >>> base_g.integer_validator("zero", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: zero must be greater than 0
+    
+    

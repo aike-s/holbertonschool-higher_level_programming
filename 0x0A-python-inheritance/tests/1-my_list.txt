@@ -1,0 +1,39 @@
+================================
+The 1-my_list.py module
+================================
+
+Using class MyList of file 1-my_list.py.
+
+
+Imports module
+───────────────────────────
+    >>> MyList = __import__('1-my_list').MyList
+
+Normal list
+=======
+
+    >>> new_list = MyList()
+    >>> new_list.append(7)
+    >>> new_list.append(3)
+    >>> new_list.append(5)
+    >>> new_list.append(8)
+    >>> new_list.append(2)
+    >>> new_list.append(1)
+    >>> new_list.print_sorted()
+    [1, 2, 3, 5, 7, 8]
+
+List with negative numbers
+=======
+
+    >>> new_list = MyList()
+    >>> new_list.append(-7)
+    >>> new_list.append(-3)
+    >>> new_list.append(-5)
+    >>> new_list.append(-8)
+    [-8, -7, -5, -3]
+
+Empty list
+=======
+
+    >>> new_list = MyList()
+    []
