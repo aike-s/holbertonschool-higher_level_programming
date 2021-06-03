@@ -1,65 +1,54 @@
-# ===============================================
-# Unit test 1-my_list
-# ===============================================
+================================
+The ``1-my_list.py`` module
+================================
+
+Test where the function of the super class list is used on my list
 
 
-import module:
-MyList = import('1-my_list').MyList
+Imports module
+───────────────────────────
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
 
-=====================
-Normal list
----------------------
+Testng cases
+=======
 
-    >>> l = MyList()
-    >>> l.append(5)
-    >>> l.append(6)
-    >>> l.append(7)
-    >>> l.append(8)
-    >>> l.append(9)
-    >>> l.append(10)
-    >>> print(l)
-    [5, 6, 7, 8, 9, 10]
+::
 
-    >>> l.print_sorted()
-    [5, 6, 7, 8, 9, 10]
+Correct cases
 
-    >>> l = MyList()
-    >>> l.append(10)
-    >>> l.append(9)
-    >>> l.append(8)
-    >>> l.append(7)
-    >>> l.append(6)
-    >>> l.append(5)
-    >>> print(l)
-    [10, 9, 8, 7, 6, 5]
+    >>> my_list = MyList()
+    >>> my_list.append(6)
+    >>> my_list.append(5)
+    >>> my_list.append(7)
+    >>> print(my_list)
+    [6, 5, 7]
+    >>> my_list.print_sorted()
+    [5, 6, 7]
+    >>> print(my_list)
+    [6, 5, 7]
 
-    >>> l.print_sorted()
-    [5, 6, 7, 8, 9, 10]
-    >>> print(l)
-    [10, 9, 8, 7, 6, 5]
-    >>> l.append(-5)
-    >>> l.append(11)
-    >>> print(l)
-    [10, 9, 8, 7, 6, 5, -5, 11]
-    >>> l.print_sorted()
-    [-5, 5, 6, 7, 8, 9, 10, 11]
-    >>> l = MyList()
-    >>> l.append(-5)
-    >>> l.append(-7)
-    >>> l.append(-23)
-    >>> l.append(-2)
-    >>> l.append(-1)
-    >>> print(l)
-    [-5, -7, -23, -2, -1]
-    >>> l.print_sorted()
-    [-23, -7, -5, -2, -1]
-    >>> l = MyList(2)
-    Traceback (most recent call last):
-    TypeError: 'int' object is not iterable
-    >>> issubclass(MyList, list)
-    True
-    >>> issubclass(list, MyList)
-    False
-    >>> l = MyList()
-    >>> l.print_sorted()
+Test Cases
+
+    >>> empty_list = MyList()
+    >>> print(empty_list)
     []
+    >>> empty_list.print_sorted()
+    []
+
+    >>> type_list = MyList()
+    >>> isinstance(type_list, list)
+    True
+
+Negative numbers
+
+    >>> negative_numbers = MyList()
+    >>> negative_numbers.append(-8)
+    >>> negative_numbers.append(-2)
+    >>> negative_numbers.append(-4)
+    >>> print(negative_numbers)
+    [-8, -2, -4]
+    >>> negative_numbers.print_sorted()
+    [-8, -4, -2]
+    >>> print(negative_numbers)
+    [-8, -2, -4]
