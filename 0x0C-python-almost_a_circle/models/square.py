@@ -9,7 +9,7 @@ class Square(Rectangle):
     """ The Square class"""
 
     def __init__(self, size, x=0, y=0, id=None):
-        
+
         """ Initialization of the Square attributes """
         Rectangle.__init__(self, size, size, x, y, id)
 
@@ -21,7 +21,7 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, width):
-        
+
         """ Assigns the parameter to the attribute """
         self.width = self.size
         self.height = self.size

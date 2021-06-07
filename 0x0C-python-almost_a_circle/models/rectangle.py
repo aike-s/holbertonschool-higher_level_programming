@@ -26,7 +26,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
-        
+
         """ Assigns the parameter to the attribute after filtering """
         if type(width) is not int:
             raise TypeError("width must be an integer")
@@ -116,6 +116,7 @@ class Rectangle(Base):
         if args is not None:
             for i, value in enumerate(args):
                 setattr(self, attributes_list[i], value)
+
         elif kwargs is not None:
             for key, value in kwargs.items():
                 # The following validation is to check if the object
