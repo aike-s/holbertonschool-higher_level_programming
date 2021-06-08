@@ -8,11 +8,9 @@ import os.path
 
 class Base:
     """ Base class """
-
     __nb_objects = 0
 
     def __init__(self, id=None):
-
         """ Initialization of the Base attribute """
         if id is not None:
             self.id = id
@@ -22,7 +20,6 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-
         """ Returns the JSON string representation of list_dictionaries """
         if list_dictionaries is not None or len(list_dictionaries) != 0:
             return json.dumps(list_dictionaries)
@@ -31,7 +28,6 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-
         """ Writes the JSON string representation of list_objs into a file """
         # To start, look for the class name of the instance in the list
         # to name the file to be written to
@@ -53,7 +49,6 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-
         """ Returns the list of the JSON string representation """
         if json_string is not None or len(json_string) != 0:
             json_list = list(json.loads(json_string))
@@ -63,8 +58,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-
-        """  """
+        """ Returns an instance with all attributes already set """
         # At first, create an instance
         obj = cls(1, 1, 1)
         # Now the instance is updated with the arguments in dictionary
@@ -73,8 +67,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-
-        """ """
+        """ Returns a list of instances """
         # To start, look for the class name to name the file to be written to
         # Example: Class_name.json
         filename = (cls.__name__) + ".json"
