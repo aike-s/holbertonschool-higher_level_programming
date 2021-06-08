@@ -50,11 +50,17 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """ Returns the list of the JSON string representation """
-        if json_string is not None or len(json_string) != 0:
-            json_list = list(json.loads(json_string))
-            return json_list
+        # if json_string is not None && len(json_string) != 0:
+        #     json_list = list(json.loads(json_string))
+        #     return json_list
 
-        return []
+        # return []
+        result = []
+
+        if json_string and len(json_string) > 0:
+            result = list(json.loads(json_string))
+
+        return result
 
     @classmethod
     def create(cls, **dictionary):
@@ -77,12 +83,10 @@ class Base:
         if os.path.isfile(filename):
             with open(filename, mode='r', encoding='utf-8') as open_file:
                 text = open_file.read()
-            json_list = cls.from_json_string(text)
+            json_list = Base.from_json_string(text)
             # Every element in the list has a dictionary
             for dictionary in json_list:
                 # With each dictionary I must create an instance
-                print(dictionary)
-                obj = cls.create(dictionary)
-                list_instances.append(obj)
+                list_instances += [cls.create(**dictionary)]
 
         return list_instances
