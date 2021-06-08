@@ -88,9 +88,7 @@ class Base:
             # Every element in the list has a dictionary
             for dictionary in json_list:
                 # With each dictionary I must create an instance
-                print('dict -------------')
                 print(dictionary)
-                print('dict -------------')
                 obj = cls.create(dictionary)
                 list_instances.append(obj)
 
