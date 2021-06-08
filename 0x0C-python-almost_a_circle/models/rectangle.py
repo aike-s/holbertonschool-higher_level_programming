@@ -12,11 +12,10 @@ class Rectangle(Base):
 
         """ Initialization fo the Rectangle attributes """
         Base.__init__(self, id)
-        self.__width = width
-        self.__height  = height
-        self.__x  = x
-        self.__y  = y
-
+        self.width = width
+        self.height  = height
+        self.x  = x
+        self.y  = y
 
     @property
     def width(self):
@@ -32,7 +31,7 @@ class Rectangle(Base):
             raise TypeError("width must be an integer")
         if width <= 0:
             raise ValueError("width must be > 0")
-        self.__width = self.width
+        self.__width = width
 
     @property
     def height(self):
@@ -48,7 +47,7 @@ class Rectangle(Base):
             raise TypeError("height must be an integer")
         if height <= 0:
             raise ValueError("height must be > 0")
-        self.__height = self.height
+        self.__height = height
 
     @property
     def x(self):
@@ -64,7 +63,7 @@ class Rectangle(Base):
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
-        self.__x = self.x
+        self.__x = x
 
     @property
     def y(self):
@@ -80,7 +79,7 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
-        self.__y = self.y
+        self.__y = y
 
     def area(self):
 
@@ -95,7 +94,7 @@ class Rectangle(Base):
         for y in range(0, self.__height):
 
             # Now the width is printed
-            for x in range(0, self.__x): print (' ', end='') 
+            for x in range(0, self.__x): print (' ', end='')
             for x in range(1, self.__width): print('#', end='')
 
             # This is part of the height, it has to be printed after the width
@@ -111,21 +110,18 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
 
         """ Method for update the class Rectangle """
-        attributes_list = ["id", "__width", "__height", "__x", "__y"]
+        attributes_list = ["id", "width", "height", "x", "y"]
 
-        if args is not None:
+        if args:
             for i, value in enumerate(args):
                 setattr(self, attributes_list[i], value)
 
-        elif kwargs is not None:
+        else:
             for key, value in kwargs.items():
-                # The following validation is to check if the object
-                # has this attribute or not
-                if hasattr(self, key):
-                    setattr(self, key, value)
+                setattr(self, key, value)
 
     def to_dictionary(self):
 
         """ Returns the dictionary representation of a Rectangle instance"""
-        return {"id" : self.id, "width" : self.__width, "height" : self.__height, 
-        "x" : self.__x, "y" : self.__y}
+        return {"id" : self.id, "width" : self.__width,
+        "height" : self.__height,"x" : self.__x, "y" : self.__y}

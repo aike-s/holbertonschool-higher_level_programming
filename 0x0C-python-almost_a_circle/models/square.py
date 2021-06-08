@@ -20,26 +20,24 @@ class Square(Rectangle):
         return self.width
 
     @size.setter
-    def size(self, width):
+    def size(self, size):
 
         """ Assigns the parameter to the attribute """
-        self.width = self.size
-        self.height = self.size
+        self.width = size
+        self.height = size
 
     def update(self, *args, **kwargs):
 
         """ Method for update the class Rectangle """
         attributes_list = ["id", "size", "x", "y"]
 
-        if args is not None:
+        if args:
             for i, value in enumerate(args):
                 setattr(self, attributes_list[i], value)
-        elif kwargs is not None:
+
+        else:
             for key, value in kwargs.items():
-                # The following validation is to check if the object
-                # has this attribute or not
-                if hasattr(self, key):
-                    setattr(self, key, value)
+                setattr(self, key, value)
 
     def __str__(self):
 
