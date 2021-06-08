@@ -32,13 +32,13 @@ class Base:
         # To start, look for the class name of the instance in the list
         # to name the file to be written to
         # Example: Class_name.json
-        class_name = cls.__name__, list_objs[0]
-        filename = class_name[0] + ".json"
+        filename = cls.__name__ + ".json"
 
         # Make a list with dictionary for each object passed to us in list_obj
         list_dict = []
-        for obj in list_objs:
-            list_dict.append(cls.to_dictionary(obj))
+        if list_objs:
+            for obj in list_objs:
+                list_dict.append(cls.to_dictionary(obj))
 
         # Then, make a JSON string representation of the list
         # with the to_json_string method and save it in 'text'
