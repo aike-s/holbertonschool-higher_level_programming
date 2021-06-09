@@ -21,10 +21,9 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """ Returns the JSON string representation of list_dictionaries """
-        if list_dictionaries is not None or list_dictionaries != []:
-            return json.dumps(list_dictionaries)
-        else:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -52,23 +51,21 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """ Returns the list of the JSON string representation """
-        # if json_string is not None && len(json_string) != 0:
-        #     json_list = list(json.loads(json_string))
-        #     return json_list
-
-        # return []
-        result = []
+        json_list = []
 
         if json_string and len(json_string) > 0:
-            result = list(json.loads(json_string))
+            json_list = list(json.loads(json_string))
 
-        return result
+        return json_list
 
     @classmethod
     def create(cls, **dictionary):
         """ Returns an instance with all attributes already set """
         # At first, create an instance
-        obj = cls(1, 1)
+        if cls.__name__ == "Rectangle":
+            obj = cls(1, 1)
+        if cls.__name__ == "Square":
+            obj = cls(1)
         # Now the instance is updated with the arguments in dictionary
         obj.update(**dictionary)
         return obj
@@ -85,9 +82,9 @@ class Base:
         if os.path.isfile(filename):
             with open(filename, mode='r', encoding='utf-8') as open_file:
                 text = open_file.read()
-            json_list = Base.from_json_string(text)
+            list_dict = Base.from_json_string(text)
             # Every element in the list has a dictionary
-            for dictionary in json_list:
+            for dictionary in list_dict:
                 # With each dictionary I must create an instance
                 list_instances += [cls.create(**dictionary)]
 
