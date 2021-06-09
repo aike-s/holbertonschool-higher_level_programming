@@ -21,7 +21,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """ Returns the JSON string representation of list_dictionaries """
-        if list_dictionaries is not None or len(list_dictionaries) != 0:
+        if list_dictionaries is not None or list_dictionaries != []:
             return json.dumps(list_dictionaries)
         else:
             return "[]"
@@ -36,6 +36,8 @@ class Base:
 
         # Make a list with dictionary for each object passed to us in list_obj
         list_dict = []
+
+        # Check if the list_objs is None or not
         if list_objs:
             for obj in list_objs:
                 list_dict.append(cls.to_dictionary(obj))
@@ -66,7 +68,7 @@ class Base:
     def create(cls, **dictionary):
         """ Returns an instance with all attributes already set """
         # At first, create an instance
-        obj = cls(1, 1, 1)
+        obj = cls(1, 1)
         # Now the instance is updated with the arguments in dictionary
         obj.update(**dictionary)
         return obj
