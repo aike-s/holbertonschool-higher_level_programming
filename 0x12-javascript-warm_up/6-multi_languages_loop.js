@@ -1,6 +1,6 @@
 #!/usr/bin/node
-const three_languages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+const threeLanguages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-for (let i = 0; three_languages[i]; i++) {
-  console.log(three_languages[i]);
+for (let i = 0; threeLanguages[i]; i++) {
+  console.log(threeLanguages[i]);
 }
