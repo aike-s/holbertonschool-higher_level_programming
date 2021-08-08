@@ -9,6 +9,7 @@ from model_state import Base, State
 
 
 class City(Base):
+    """ Initialization of table/class State """
     __tablename__ = 'cities'
     id = Column(Integer, autoincrement=True,
                 primary_key=True, nullable=False, unique=False)
