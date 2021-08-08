@@ -2,7 +2,7 @@
 """
 Takes in an argument and displays all values in the states table
 of hbtn_0e_0_usa where name matches the argument
-(safe from MySQL injections)
+(safe from MySQL injections!)
 """
 
 import MySQLdb
@@ -18,8 +18,9 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE name ='" +
-                   argument + "' ORDER BY states.id ASC")
+    cursor.execute("""SELECT * FROM states
+                    WHERE states.name=%s
+                    ORDER BY states.id""", (argument,))
 
     rows = cursor.fetchall()
     for row in rows:

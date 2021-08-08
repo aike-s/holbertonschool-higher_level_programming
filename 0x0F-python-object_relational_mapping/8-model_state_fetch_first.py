@@ -7,7 +7,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 import sys
-from model_state import Base, State
+from model_state import State
 
 if __name__ == "__main__":
 
@@ -16,16 +16,14 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         user, password, data_base), pool_pre_ping=True)
 
-    Base.metadata.create_all(engine)
-
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id).all():
-        if state.id == 1:
-            print("{:d}: {}".format(state.id, state.name))
-            break
-        else:
-            break
+    state = session.query(State).order_by(State.id).all()
+
+    if state:
+        print("{:d}: {}".format(state.id, state.name))
+    else:
+        print("Nothing")
 
     session.close()

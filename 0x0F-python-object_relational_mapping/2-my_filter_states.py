@@ -19,8 +19,8 @@ if __name__ == "__main__":
 
     cursor.execute(""""SELECT *
                     FROM states
-                    WHERE name = %s
-                    ORDER BY states.id ASC""", (argument,))
+                    WHERE name LIKE '{}'
+                    ORDER BY states.id ASC""".format(argument))
 
     rows = cursor.fetchall()
     for row in rows:
