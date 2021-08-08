@@ -17,10 +17,9 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute(""""SELECT *
-                    FROM states
-                    WHERE name LIKE '{}'
-                    ORDER BY states.id ASC""".format(argument))
+    cursor.execute("SELECT * FROM states "
+                   "WHERE BINARY states.name='{}' ".format(argument) +
+                   "ORDER BY states.id")
 
     rows = cursor.fetchall()
     for row in rows:

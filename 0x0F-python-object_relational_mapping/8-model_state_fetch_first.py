@@ -7,7 +7,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 import sys
-from model_state import State
+from model_state import Base, State
 
 if __name__ == "__main__":
 
