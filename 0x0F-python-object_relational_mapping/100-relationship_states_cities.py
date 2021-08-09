@@ -15,14 +15,15 @@ if __name__ == "__main__":
 
     data_base, password, user = sys.argv[3], sys.argv[2], sys.argv[1]
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        user, password, data_base), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:@localhost:3306/{}'.format(
+        user, data_base), pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    new_state = State(name="California", cities=[City(name="San Francisco")])
-    session.add(new_state)
+    state = State(name="California", cities=[City(name="San Francisco")])
+
+    session.add(state)
 
     session.commit()
     session.close()
