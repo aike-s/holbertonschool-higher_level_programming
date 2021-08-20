@@ -1,3 +1,3 @@
 #!/bin/bash
 # displays the body of the response
-curl -X GET "$1"
+curl -si -X GET "$1" 
